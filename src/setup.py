@@ -102,7 +102,7 @@ def Md5():
 	print("")
 	print(hash_object.hexdigest())
 	print("")
-	Again("\n\033[1;36mDESIRE TO DO ANOTHER ENCODE IN MD5 (y/n) ?:\033[1;m ", Md5)
+	Again("\n\033[1;36mDESIRE TO DO ANOTHER ENCRYPTION IN MD5 (y/n) ?:\033[1;m ", Md5)
 
 def Sha1():
 	Presentation()
@@ -111,7 +111,7 @@ def Sha1():
 	print("")
 	print(hash_object.hexdigest())
 	print("")
-	Again("\n\033[1;36mDESIRE TO DO ANOTHER ENCODE IN SHA1 (y/n) ?:\033[1;m ", Sha1)
+	Again("\n\033[1;36mDESIRE TO DO ANOTHER ENCRYPTION IN SHA1 (y/n) ?:\033[1;m ", Sha1)
 
 def Sha224():
 	Presentation()
@@ -120,7 +120,7 @@ def Sha224():
 	print("")
 	print(hash_object.hexdigest())
 	print("")
-	Again("\n\033[1;36mDESIRE TO DO ANOTHER ENCODE IN SHA224 (y/n) ?:\033[1;m ", Sha224)
+	Again("\n\033[1;36mDESIRE TO DO ANOTHER ENCRYPTION IN SHA224 (y/n) ?:\033[1;m ", Sha224)
 
 def Sha256():
 	Presentation()
@@ -129,7 +129,7 @@ def Sha256():
 	print("")
 	print(hash_object.hexdigest())
 	print("")
-	Again("\n\033[1;36mDESIRE TO DO ANOTHER ENCODE IN SHA256 (y/n) ?:\033[1;m ", Sha256)
+	Again("\n\033[1;36mDESIRE TO DO ANOTHER ENCRYPTION IN SHA256 (y/n) ?:\033[1;m ", Sha256)
 
 def Sha384():
 	Presentation()
@@ -138,7 +138,7 @@ def Sha384():
 	print("")
 	print(hash_object.hexdigest())
 	print("")
-	Again("\n\033[1;36mDESIRE TO DO ANOTHER ENCODE IN SHA384 (y/n) ?:\033[1;m ", Sha384)
+	Again("\n\033[1;36mDESIRE TO DO ANOTHER ENCRYPTION IN SHA384 (y/n) ?:\033[1;m ", Sha384)
 
 def Sha512():
 	Presentation()
@@ -151,17 +151,17 @@ def Sha512():
 
 def Base64Encode():
 	Presentation()
-	mystring = str(input("\033[32mPLACE THE TEXT YOU WANT TO TRANSFORM IN BASE64\033[1;m: ")) 
+	mystring = str(input("\033[32mPLACE THE TEXT YOU WANT TO ENCODE IN BASE64\033[1;m: ")) 
 	print("")
 	encode = b64encode(mystring.encode('utf-8')) 
 	decode = encode.decode('utf-8')
 	print(decode)
 	print("") 
-	Again("\n\033[1;36mWOULD YOU LIKE TO TRANSFORM ANOTHER TEXT IN BASE64 (y/n) ?:\033[1;m ", Base64Encode)
+	Again("\n\033[1;36mWOULD YOU LIKE TO ENCODE ANOTHER TEXT IN BASE64 (y/n) ?:\033[1;m ", Base64Encode)
 
 def Base64Decode():
 	Presentation()
-	mystring = str(input("\033[32mPLACE THE TEXT YOU WANT TO UNCOVER IN BASE64\033[1;m: ")) 
+	mystring = str(input("\033[32mPLACE THE TEXT YOU WANT TO DECODE IN BASE64\033[1;m: ")) 
 	print("")
 	try:
 		decode = b64decode(mystring).decode('utf-8')
@@ -171,7 +171,7 @@ def Base64Decode():
 		print("\n[\033[1;91m!\033[1;m] INCORRECT PADDING")
 		sleep(3)
 		Base64Decode()
-	Again("\n\033[1;36mWISHES TO UNCOVER ANOTHER TEXT IN BASE64 (y/n) ?:\033[1;m ", Base64Decode)
+	Again("\n\033[1;36mWOULD YOU LIKE TO TO DECODE ANOTHER TEXT IN BASE64 (y/n) ?:\033[1;m ", Base64Decode)
 
 def Base64():
 	Presentation()
@@ -193,7 +193,7 @@ def Base64():
 def BinaryEncode(encoding='utf-8', errors='surrogatepass'):
 	Presentation()
 	try:
-		mystring = input("\033[32mPLACE THE TEXT YOU WANT TO TRANSFORM IN BINÁRIO\033[1;m: ")
+		mystring = input("\033[32mPLACE THE TEXT YOU WANT TO ENCODE IN BINÁRIO\033[1;m: ")
 		print("")
 		bits = bin(int(binascii.hexlify(mystring.encode(encoding, errors)), 16))[2:]
 		print(bits.zfill(8 * ((len(bits) + 7) // 8)))
@@ -202,12 +202,12 @@ def BinaryEncode(encoding='utf-8', errors='surrogatepass'):
 		print("\n[\033[1;91m!\033[1;m] VALUE ERROR")
 		sleep(3)
 		BinaryEncode()
-	Again("\n\033[1;36mWOULD YOU LIKE TO TRANSFORM ANOTHER TEXT IN BINÁRIO (y/n) ?:\033[1;m ", BinaryEncode)
+	Again("\n\033[1;36mWOULD YOU LIKE TO ENCODE ANOTHER TEXT IN BINÁRIO (y/n) ?:\033[1;m ", BinaryEncode)
 
 def BinaryDecode(encoding='utf-8', errors='surrogatepass'):
 	Presentation()
 	try:
-		Binary = input("\033[32mPLACE THE SEQUENCE OF NUMBERS YOU DESIRE TO UNCOVER IN BINARY\033[1;m: ")
+		Binary = input("\033[32mPLACE THE SEQUENCE OF NUMBERS YOU DESIRE TO DECODE IN BINARY\033[1;m: ")
 		Binary = Binary.replace(" ", "")
 		n = int(Binary, 2)
 		print("")
@@ -217,7 +217,7 @@ def BinaryDecode(encoding='utf-8', errors='surrogatepass'):
 		print("\n\n[\033[1;91m!\033[1;m] VALUE ERROR")
 		sleep(3)
 		BinaryDecode()
-	Again("\n\033[1;36mWISHES TO UNCOVER ANOTHER SEQUENCE IN BINARY (y/n) ?:\033[1;m ", BinaryDecode)
+	Again("\n\033[1;36mWISHES TO DECODE ANOTHER SEQUENCE IN BINARY (y/n) ?:\033[1;m ", BinaryDecode)
 
 def int2bytes(i):
 	hex_string = '%x' % i
@@ -244,7 +244,7 @@ def Binary():
 
 def HexaEncode():
 	Presentation()
-	mystring = input("\033[32mPLACE THE TEXT YOU WANT TO TRANSFORM IN HEXADECIMAL\033[1;m: ")
+	mystring = input("\033[32mPLACE THE TEXT YOU WANT TO ENCODE IN HEXADECIMAL\033[1;m: ")
 	print("")
 	encode = binascii.hexlify(bytes(mystring, "utf-8"))
 	encode = str(encode).strip("b")
@@ -252,12 +252,12 @@ def HexaEncode():
 	encode = re.sub(r'(..)', r'\1 ', encode).strip()
 	print(encode)
 	print("")
-	Again("\n\033[1;36mWANT TO TRANSFORM ANOTHER TEXT IN HEXADECIMAL (y/n) ?:\033[1;m ", HexaEncode)
+	Again("\n\033[1;36mWANT TO ENCODE ANOTHER TEXT IN HEXADECIMAL (y/n) ?:\033[1;m ", HexaEncode)
 
 def HexaDecode():
 	Presentation()
 	try:
-		mystring = input("\033[32mPLACE THE SEQUENCE OF CHARACTERS YOU DESIRE TO UNCOVER IN HEXADECIMAL\033[1;m: ")
+		mystring = input("\033[32mPLACE THE SEQUENCE OF CHARACTERS YOU DESIRE TO DECODE IN HEXADECIMAL\033[1;m: ")
 		print("")
 		decode = bytes.fromhex(mystring).decode('utf-8')
 		print(decode)
@@ -266,7 +266,7 @@ def HexaDecode():
 		print("\n[\033[1;91m!\033[1;m] VALUE ERROR")
 		sleep(3)
 		HexaDecode()
-	Again("\n\033[1;36mWISHES TO UNCOVER ANOTHER SEQUENCE IN HEXADECIMAL (y/n) ?:\033[1;m ", HexaDecode)
+	Again("\n\033[1;36mWISHES TO DECODE ANOTHER SEQUENCE IN HEXADECIMAL (y/n) ?:\033[1;m ", HexaDecode)
 
 def Hexadecimal():
 	Presentation()
@@ -296,11 +296,11 @@ def TextReverseEncode():
 
 def TextReverseDecode():
 	Presentation()
-	mystring = input("\033[32mPLACE TEXT YOU WANT TO UNCOVER THE REVERSE\033[1;m: ")
+	mystring = input("\033[32mPLACE TEXT YOU WANT TO DECODE THE REVERSE\033[1;m: ")
 	print("")
 	print(mystring[::-1])
 	print("")
-	Again("\n\033[1;36mWANT TO UNCOVER ANOTHER REVERSE (y/n) ?:\033[1;m ", TextReverseDecode)
+	Again("\n\033[1;36mWANT TO DECODE ANOTHER REVERSE (y/n) ?:\033[1;m ", TextReverseDecode)
 
 def TextReverse():
 	Presentation()
@@ -329,11 +329,11 @@ def WordsReverseEncode():
 
 def WordsReverseDecode():
 	Presentation()
-	mystring = input("\033[32mPLACE TEXT YOU WANT TO UNCOVER THE REVERSE\033[1;m: ")
+	mystring = input("\033[32mPLACE TEXT YOU WANT TO DECODE THE REVERSE\033[1;m: ")
 	print("")
 	print(' '.join(mystring.split()[::-1]))
 	print("")
-	Again("\n\033[1;36mWANT TO UNCOVER ANOTHER REVERSE (y/n) ?:\033[1;m ", WordsReverseDecode)
+	Again("\n\033[1;36mWANT TO DECODE ANOTHER REVERSE (y/n) ?:\033[1;m ", WordsReverseDecode)
 
 def WordsReverse():
 	Presentation()
