@@ -114,7 +114,7 @@ def Begin():
         TextReverse()
     elif appChoice == "12":
         WordsReverse()
-     elif appChoice == "12":
+     elif appChoice == "13":
         Custom()
     elif appChoice == "14":
         exit(1)
@@ -245,7 +245,7 @@ def BinaryEncode(encoding='utf-8', errors='surrogatepass'):
     Presentation()
     try:
         mystring = input(
-            "\033[32mENTER THE TEXT YOU WANT TO ENCODE IN BINÁRIO\033[1;m: ")
+            "\033[32mENTER THE TEXT YOU WANT TO ENCODE IN BINARY\033[1;m: ")
         print("")
         bits = bin(int(binascii.hexlify(
             mystring.encode(encoding, errors)), 16))[2:]
@@ -256,7 +256,7 @@ def BinaryEncode(encoding='utf-8', errors='surrogatepass'):
         sleep(3)
         BinaryEncode()
     Again(
-        "\n\033[1;36mWOULD YOU LIKE TO ENCODE ANOTHER TEXT IN BINÁRIO (y/n) ?:\033[1;m ", BinaryEncode)
+        "\n\033[1;36mWOULD YOU LIKE TO ENCODE ANOTHER TEXT IN BINARY (y/n) ?:\033[1;m ", BinaryEncode)
 
 
 def BinaryDecode(encoding='utf-8', errors='surrogatepass'):
@@ -484,7 +484,7 @@ def CeasarCipherEncode():
 def CeasarCipherDecode():
     Presentation()
     try:
-        text = str(input('\n\033[32mTEXT TO BE DECODE\033[1;m: ')).lower()
+        text = str(input('\n\033[32mTEXT TO DECODE\033[1;m: ')).lower()
         key = int(input('\033[32mNUMERICAL KEY\033[1;m: '))
         print("\033[32mRESULT\033[1;m:", decipher(text, key))
         print("")
@@ -495,19 +495,55 @@ def CeasarCipherDecode():
     Again(
         "\n\033[1;36mDO ANOTHER DECODE GIVES CESAR CIPHER (y/n) ?:\033[1;m ", CeasarCipherDecode)
 
-def Custom():
-     Presentation()
+def CustomEncode():
+    Presentation()
     try:
-        text = str(input('\n\033[32mTEXT TO BE DECODE\033[1;m: ')).lower()
+        text = str(input('\n\033[32mTEXT TO ENCODE\033[1;m: ')).lower()
+        key = int(input('\033[32mNUMERICAL KEY\033[1;m: '))
+        print("")
+        encode = binascii.hexlify(bytes(text, "utf-8"))
+        encode = str(encode).strip("b")
+        encode = encode.strip("'")
+        encode = re.sub(r'(..)', r'\1 ', encode).strip()
+        print(encode)
+    except:
+        print("\n[\033[1;91m!\033[1;m] VALUE ERROR")
+        sleep(3)
+        CustomEncode()
+            
+        print("\033[32mRESULT\033[1;m:", cipher(text, key))
+        print("")
+    Again(
+        "\n\033[1;36mDO ANOTHER CUSTOM ENCODE (y/n) ?:\033[1;m ", CustomEncode)
+
+def CustomDecode():
+    Presentation()
+    try:
+        text = str(input('\n\033[32mTEXT TO DECODE\033[1;m: ')).lower()
         key = int(input('\033[32mNUMERICAL KEY\033[1;m: '))
         print("\033[32mRESULT\033[1;m:", decipher(text, key))
         print("")
     except:
         print("\n\n[\033[1;91m!\033[1;m] VALUE ERROR")
         sleep(3)
-        CeasarCipherDecode()
+        CustomDecode()
     Again(
-        "\n\033[1;36mDESIRE TO DO ANOTHER DECODE GIVES CIPHER OF CESAR (y/n) ?:\033[1;m ", CeasarCipherDecode)
-    pass
+        "\n\033[1;36m DO ANOTHER CUSTOM DECODE  (y/n) ?:\033[1;m ", CustomDecode)
+    
+def Custom():
+    Presentation()
+    print("""
+[\033[1;32m*\033[1;m] CHOOSE ONE OF THE OPTIONS BELOW TO CONTINUE:
+
+\033[31m1\033[1;m) ENCODE - CUSTOM
+\033[31m2\033[1;m) DECODE - CUSTOM
+""")
+    appChoice = input("\n\033[1;36m⟫⟫⟫\033[1;m ")
+    if appChoice == "1":
+        CustomrEncode()
+    elif appChoice == "2":
+        CustomDecode()
+    else:
+        Custom()
 
 Begin()
