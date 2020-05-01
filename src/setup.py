@@ -501,21 +501,19 @@ def CustomEncode():
         text = str(input('\n\033[32mTEXT TO ENCODE\033[1;m: ')).lower()
         key = int(input('\033[32mNUMERICAL KEY\033[1;m: '))
         print("")
-        while key > 0:
+        temp = key
+        while temp > 0:
             encode = binascii.hexlify(bytes(text, "utf-8"))
             encode = str(encode).strip("b")
             encode = encode.strip("'")
             encode = re.sub(r'(..)', r'\1 ', encode).strip()
             text = encode
-            key -=1
-        print(encode)
+            temp -=1
+        print("\033[32mRESULT\033[1;m:", cipher(text, key))
     except:
         print("\n[\033[1;91m!\033[1;m] VALUE ERROR")
         sleep(3)
         CustomEncode()
-            
-        print("\033[32mRESULT\033[1;m:", cipher(text, key))
-        print("")
     Again(
         "\n\033[1;36mDO ANOTHER CUSTOM ENCODE (y/n) ?:\033[1;m ", CustomEncode)
 
@@ -525,20 +523,18 @@ def CustomDecode():
         text = str(input('\n\033[32mTEXT TO DECODE\033[1;m: ')).lower()
         key = int(input('\033[32mNUMERICAL KEY\033[1;m: '))
         print("")
-        while key >0:
+        temp = key
+        while temp >0:
             decode = bytes.fromhex(text).decode('utf-8')
             text = decode
-            key -=1
-        print(decode)
+            temp -=1
+        print("\033[32mRESULT\033[1;m:", decipher(text, key))
     except:
         print("\n[\033[1;91m!\033[1;m] VALUE ERROR")
         sleep(3)
-        CustomEncode()
-            
-        print("\033[32mRESULT\033[1;m:", cipher(text, key))
-        print("")
+        CustomDecode()
     Again(
-        "\n\033[1;36mDO ANOTHER CUSTOM DECODE (y/n) ?:\033[1;m ", CustomDencode)
+        "\n\033[1;36mDO ANOTHER CUSTOM DECODE (y/n) ?:\033[1;m ", CustomDecode)
     
 def Custom():
     Presentation()
