@@ -114,7 +114,7 @@ def Begin():
         TextReverse()
     elif appChoice == "12":
         WordsReverse()
-     elif appChoice == "13":
+    elif appChoice == "13":
         Custom()
     elif appChoice == "14":
         exit(1)
@@ -501,10 +501,13 @@ def CustomEncode():
         text = str(input('\n\033[32mTEXT TO ENCODE\033[1;m: ')).lower()
         key = int(input('\033[32mNUMERICAL KEY\033[1;m: '))
         print("")
-        encode = binascii.hexlify(bytes(text, "utf-8"))
-        encode = str(encode).strip("b")
-        encode = encode.strip("'")
-        encode = re.sub(r'(..)', r'\1 ', encode).strip()
+        while key > 0:
+            encode = binascii.hexlify(bytes(text, "utf-8"))
+            encode = str(encode).strip("b")
+            encode = encode.strip("'")
+            encode = re.sub(r'(..)', r'\1 ', encode).strip()
+            text = encode
+            key -=1
         print(encode)
     except:
         print("\n[\033[1;91m!\033[1;m] VALUE ERROR")
@@ -521,14 +524,21 @@ def CustomDecode():
     try:
         text = str(input('\n\033[32mTEXT TO DECODE\033[1;m: ')).lower()
         key = int(input('\033[32mNUMERICAL KEY\033[1;m: '))
-        print("\033[32mRESULT\033[1;m:", decipher(text, key))
         print("")
+        while key >0:
+            decode = bytes.fromhex(text).decode('utf-8')
+            text = decode
+            key -=1
+        print(decode)
     except:
-        print("\n\n[\033[1;91m!\033[1;m] VALUE ERROR")
+        print("\n[\033[1;91m!\033[1;m] VALUE ERROR")
         sleep(3)
-        CustomDecode()
+        CustomEncode()
+            
+        print("\033[32mRESULT\033[1;m:", cipher(text, key))
+        print("")
     Again(
-        "\n\033[1;36m DO ANOTHER CUSTOM DECODE  (y/n) ?:\033[1;m ", CustomDecode)
+        "\n\033[1;36mDO ANOTHER CUSTOM DECODE (y/n) ?:\033[1;m ", CustomDencode)
     
 def Custom():
     Presentation()
@@ -540,7 +550,7 @@ def Custom():
 """)
     appChoice = input("\n\033[1;36m⟫⟫⟫\033[1;m ")
     if appChoice == "1":
-        CustomrEncode()
+        CustomEncode()
     elif appChoice == "2":
         CustomDecode()
     else:
