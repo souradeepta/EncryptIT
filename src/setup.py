@@ -12,6 +12,22 @@ import sys
 import os
 from platform import python_version
 
+class CONST(object):
+    """[Creating the instance allows the magic __setattr__ method to kick in and intercept attempts to set the FOO variable.
+     You could throw an exception here if you wanted to.
+      Instantiating the instance over the class name prevents access directly via the class.]
+
+	Arguments:
+		object {[type]} -- [description]
+	"""
+    abc = "abcdefghijklmnopqrstuvwxyz "
+
+    def __setattr__(self, *_):
+        raise TypeError
+ 
+ # CONST = CONST()
+
+
 clearScreen = "clear"
 if sys.version_info[0] < 3:
     version = python_version()
@@ -98,6 +114,8 @@ def Begin():
         TextReverse()
     elif appChoice == "12":
         WordsReverse()
+     elif appChoice == "12":
+        Custom()
     elif appChoice == "14":
         exit(1)
     else:
@@ -425,25 +443,25 @@ def CeasarCipher():
 
 
 def cipher(text, key):
-    abc = "abcdefghijklmnopqrstuvwxyz "
+    #abc = "abcdefghijklmnopqrstuvwxyz "
     cipher_text = ""
 
     for letter in text:
-        sum = abc.find(letter) + key
-        modulo = int(sum) % len(abc)
-        cipher_text = cipher_text + str(abc[modulo])
+        sum = CONST.abc.find(letter) + key
+        modulo = int(sum) % len(CONST.abc)
+        cipher_text = cipher_text + str(CONST.abc[modulo])
 
     return cipher_text
 
 
 def decipher(text, key):
-    abc = "abcdefghijklmnopqrstuvwxyz "
+    #abc = "abcdefghijklmnopqrstuvwxyz "
     cipher_text = ""
 
     for letter in text:
-        sum = abc.find(letter) - key
-        modulo = int(sum) % len(abc)
-        cipher_text = cipher_text + str(abc[modulo])
+        sum = CONST.abc.find(letter) - key
+        modulo = int(sum) % len(CONST.abc)
+        cipher_text = cipher_text + str(CONST.abc[modulo])
 
     return cipher_text
 
@@ -460,7 +478,7 @@ def CeasarCipherEncode():
         sleep(3)
         CeasarCipherEncode()
     Again(
-        "\n\033[1;36mDESIRE TO DO ANOTHER ENCODE GIVES CIPHER OF CESAR (y/n) ?:\033[1;m ", CeasarCipherEncode)
+        "\n\033[1;36mDO ANOTHER ENCODE GIVES CESAR CIPHER (y/n) ?:\033[1;m ", CeasarCipherEncode)
 
 
 def CeasarCipherDecode():
@@ -475,7 +493,21 @@ def CeasarCipherDecode():
         sleep(3)
         CeasarCipherDecode()
     Again(
-        "\n\033[1;36mDESIRE TO DO ANOTHER DECODE GIVES CIPHER OF CESAR (y/n) ?:\033[1;m ", CeasarCipherDecode)
+        "\n\033[1;36mDO ANOTHER DECODE GIVES CESAR CIPHER (y/n) ?:\033[1;m ", CeasarCipherDecode)
 
+def Custom():
+     Presentation()
+    try:
+        text = str(input('\n\033[32mTEXT TO BE DECODE\033[1;m: ')).lower()
+        key = int(input('\033[32mNUMERICAL KEY\033[1;m: '))
+        print("\033[32mRESULT\033[1;m:", decipher(text, key))
+        print("")
+    except:
+        print("\n\n[\033[1;91m!\033[1;m] VALUE ERROR")
+        sleep(3)
+        CeasarCipherDecode()
+    Again(
+        "\n\033[1;36mDESIRE TO DO ANOTHER DECODE GIVES CIPHER OF CESAR (y/n) ?:\033[1;m ", CeasarCipherDecode)
+    pass
 
 Begin()
