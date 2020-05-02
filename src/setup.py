@@ -28,7 +28,6 @@ class CONST(object):
  # CONST = CONST()
 
 
-clearScreen = "clear"
 if sys.version_info[0] < 3:
     version = python_version()
     print("\n\033[32m You are using python in the version\033[1;m \033[1m\033[31m%s\033[1;m \033[32mand it is lower than python3 onwards.\033[1;m" % (versao))
@@ -37,7 +36,6 @@ if sys.version_info[0] < 3:
 
 
 def Presentation():
-    #os.system(clearScreen)
     os.system('cls' if os.name == 'nt' else 'clear')
     print("""\033[31m
 
