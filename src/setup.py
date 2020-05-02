@@ -37,7 +37,8 @@ if sys.version_info[0] < 3:
 
 
 def Presentation():
-    os.system(clearScreen)
+    #os.system(clearScreen)
+    os.system('cls' if os.name == 'nt' else 'clear')
     print("""\033[31m
 
 ___________                                   __  .______________
