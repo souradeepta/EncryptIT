@@ -27,17 +27,30 @@ class CONST(object):
  
  # CONST = CONST()
 
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+    WARN = '\033[32m'
+    RED = '"\033[31m'
+    WHITE = '\033[1;m'
+    GREEN2 = '\033[1;36m'
 
 if sys.version_info[0] < 3:
     version = python_version()
-    print("\n\033[32m You are using python in the version\033[1;m \033[1m\033[31m%s\033[1;m \033[32mand it is lower than python3 onwards.\033[1;m" % (versao))
-    print("\033[32m Please run program with a higher version than python2\033[1;m\n")
+    print(f"\n\033[32m You are using python in the version\033[1;m \033[1m\033[31m%s\033[1;m \033[32mand it is lower than python3 onwards.\033[1;m" % (version))
+    print(f"\033[32m Please run program with a higher version than python2\033[1;m\n")
     exit(1)
 
 
 def Presentation():
     os.system('cls' if os.name == 'nt' else 'clear')
-    print("""\033[31m
+    print(f"""\033[31m
 
 ___________                                   __  .______________
 \_   _____/ ____   ___________ ___.__._______/  |_|   \__    ___/
@@ -70,7 +83,7 @@ def Again(choice, call):
 
 def Begin():
     Presentation()
-    print("""
+    print(f"""
 	[\033[1;32m*\033[1;m] CHOOSE ONE OF THE OPTIONS BELOW TO CONTINUE:
 
 	\033[31m1\033[1;m) \033[31mENCODE\033[1;m - \033[32mMD5\033[1;m
@@ -126,9 +139,9 @@ def Md5():
     mystring = input(
         "\033[32mENTER THE TEXT YOU WANT TO ENCRYPT IN MD5\033[1;m: ")
     hash_object = hashlib.md5(mystring.encode())
-    print("")
+    print(f"")
     print(hash_object.hexdigest())
-    print("")
+    print(f"")
     Again(
         "\n\033[1;36mDESIRE TO DO ANOTHER ENCRYPTION IN MD5 (y/n) ?:\033[1;m ", Md5)
 
@@ -138,9 +151,9 @@ def Sha1():
     mystring = input(
         "\033[32mENTER THE TEXT YOU WANT TO ENCRYPT IN SHA1\033[1;m: ")
     hash_object = hashlib.sha1(mystring.encode())
-    print("")
+    print(f"")
     print(hash_object.hexdigest())
-    print("")
+    print(f"")
     Again(
         "\n\033[1;36mDESIRE TO DO ANOTHER ENCRYPTION IN SHA1 (y/n) ?:\033[1;m ", Sha1)
 
@@ -150,9 +163,9 @@ def Sha224():
     mystring = input(
         "\033[32mENTER THE TEXT YOU WANT TO ENCRYPT IN SHA224\033[1;m: ")
     hash_object = hashlib.sha224(mystring.encode())
-    print("")
+    print(f"")
     print(hash_object.hexdigest())
-    print("")
+    print(f"")
     Again(
         "\n\033[1;36mDESIRE TO DO ANOTHER ENCRYPTION IN SHA224 (y/n) ?:\033[1;m ", Sha224)
 
@@ -162,9 +175,9 @@ def Sha256():
     mystring = input(
         "\033[32mENTER THE TEXT YOU WANT TO ENCRYPT IN SHA256\033[1;m: ")
     hash_object = hashlib.sha256(mystring.encode())
-    print("")
+    print(f"")
     print(hash_object.hexdigest())
-    print("")
+    print(f"")
     Again(
         "\n\033[1;36mDESIRE TO DO ANOTHER ENCRYPTION IN SHA256 (y/n) ?:\033[1;m ", Sha256)
 
@@ -174,9 +187,9 @@ def Sha384():
     mystring = input(
         "\033[32mENTER THE TEXT YOU WANT TO ENCRYPT IN SHA384\033[1;m: ")
     hash_object = hashlib.sha384(mystring.encode())
-    print("")
+    print(f"")
     print(hash_object.hexdigest())
-    print("")
+    print(f"")
     Again(
         "\n\033[1;36mDESIRE TO DO ANOTHER ENCRYPTION IN SHA384 (y/n) ?:\033[1;m ", Sha384)
 
@@ -186,9 +199,9 @@ def Sha512():
     mystring = input(
         "\033[32mENTER THE TEXT YOU WANT TO ENCRYPT IN SHA512\033[1;m: ")
     hash_object = hashlib.sha512(mystring.encode())
-    print("")
+    print(f"")
     print(hash_object.hexdigest())
-    print("")
+    print(f"")
     Again(
         "\n\033[1;36mDESIRE TO DO ANOTHER ENCODE IN SHA512 (y/n) ?:\033[1;m ", Sha512)
 
@@ -197,11 +210,11 @@ def Base64Encode():
     Presentation()
     mystring = str(
         input("\033[32mENTER THE TEXT YOU WANT TO ENCODE IN BASE64\033[1;m: "))
-    print("")
+    print(f"")
     encode = b64encode(mystring.encode('utf-8'))
     decode = encode.decode('utf-8')
     print(decode)
-    print("")
+    print(f"")
     Again(
         "\n\033[1;36mWOULD YOU LIKE TO ENCODE ANOTHER TEXT IN BASE64 (y/n) ?:\033[1;m ", Base64Encode)
 
@@ -210,13 +223,13 @@ def Base64Decode():
     Presentation()
     mystring = str(
         input("\033[32mENTER THE TEXT YOU WANT TO DECODE IN BASE64\033[1;m: "))
-    print("")
+    print(f"")
     try:
         decode = b64decode(mystring).decode('utf-8')
         print(decode)
-        print("")
+        print(f"")
     except:
-        print("\n[\033[1;91m!\033[1;m] INCORRECT PADDING")
+        print(f"\n[\033[1;91m!\033[1;m] INCORRECT PADDING")
         sleep(3)
         Base64Decode()
     Again(
@@ -225,7 +238,7 @@ def Base64Decode():
 
 def Base64():
     Presentation()
-    print("""
+    print(f"""
 [\033[1;32m*\033[1;m] CHOOSE ONE OF THE OPTIONS BELOW TO CONTINUE:
 
 \033[31m1\033[1;m) ENCODE - BASE64
@@ -245,13 +258,13 @@ def BinaryEncode(encoding='utf-8', errors='surrogatepass'):
     try:
         mystring = input(
             "\033[32mENTER THE TEXT YOU WANT TO ENCODE IN BINARY\033[1;m: ")
-        print("")
+        print(f"")
         bits = bin(int(binascii.hexlify(
             mystring.encode(encoding, errors)), 16))[2:]
         print(bits.zfill(8 * ((len(bits) + 7) // 8)))
-        print("")
+        print(f"")
     except:
-        print("\n[\033[1;91m!\033[1;m] VALUE ERROR")
+        print(f"\n[\033[1;91m!\033[1;m] VALUE ERROR")
         sleep(3)
         BinaryEncode()
     Again(
@@ -265,15 +278,15 @@ def BinaryDecode(encoding='utf-8', errors='surrogatepass'):
             "\033[32mENTER THE SEQUENCE OF NUMBERS YOU DESIRE TO DECODE IN BINARY\033[1;m: ")
         Binary = Binary.reENTER(" ", "")
         n = int(Binary, 2)
-        print("")
+        print(f"")
         print(int2bytes(n).decode(encoding, errors))
-        print("")
+        print(f"")
     except:
-        print("\n\n[\033[1;91m!\033[1;m] VALUE ERROR")
+        print(f"\n\n[\033[1;91m!\033[1;m] VALUE ERROR")
         sleep(3)
         BinaryDecode()
     Again(
-        "\n\033[1;36mWISHES TO DECODE ANOTHER SEQUENCE IN BINARY (y/n) ?:\033[1;m ", BinaryDecode)
+        "\n\033[1;36mWANT TO DECODE ANOTHER SEQUENCE IN BINARY (y/n) ?:\033[1;m ", BinaryDecode)
 
 
 def int2bytes(i):
@@ -284,7 +297,7 @@ def int2bytes(i):
 
 def Binary():
     Presentation()
-    print("""
+    print(f"""
 [\033[1;32m*\033[1;m] CHOOSE ONE OF THE OPTIONS BELOW TO CONTINUE:
 
 \033[31m1\033[1;m) ENCODE - BINARY
@@ -303,13 +316,13 @@ def HexaEncode():
     Presentation()
     mystring = input(
         "\033[32mENTER THE TEXT YOU WANT TO ENCODE IN HEXADECIMAL\033[1;m: ")
-    print("")
+    print(f"")
     encode = binascii.hexlify(bytes(mystring, "utf-8"))
     encode = str(encode).strip("b")
     encode = encode.strip("'")
     encode = re.sub(r'(..)', r'\1 ', encode).strip()
     print(encode)
-    print("")
+    print(f"")
     Again(
         "\n\033[1;36mWANT TO ENCODE ANOTHER TEXT IN HEXADECIMAL (y/n) ?:\033[1;m ", HexaEncode)
 
@@ -319,12 +332,12 @@ def HexaDecode():
     try:
         mystring = input(
             "\033[32mENTER THE SEQUENCE OF CHARACTERS YOU DESIRE TO DECODE IN HEXADECIMAL\033[1;m: ")
-        print("")
+        print(f"")
         decode = bytes.fromhex(mystring).decode('utf-8')
         print(decode)
-        print("")
+        print(f"")
     except:
-        print("\n[\033[1;91m!\033[1;m] VALUE ERROR")
+        print(f"\n[\033[1;91m!\033[1;m] VALUE ERROR")
         sleep(3)
         HexaDecode()
     Again(
@@ -333,7 +346,7 @@ def HexaDecode():
 
 def Hexadecimal():
     Presentation()
-    print("""
+    print(f"""
 [\033[1;32m*\033[1;m] CHOOSE ONE OF THE OPTIONS BELOW TO CONTINUE:
 
 \033[31m1\033[1;m) ENCODE - HEXADECIMAL
@@ -351,9 +364,9 @@ def Hexadecimal():
 def TextReverseEncode():
     Presentation()
     mystring = input("\033[32mENTER THE TEXT YOU WANT TO REVERSE\033[1;m: ")
-    print("")
+    print(f"")
     print(mystring[::-1])
-    print("")
+    print(f"")
     Again(
         "\n\033[1;36mWANTS TO MAKE ANOTHER REVERSE (y/n) ?:\033[1;m ", TextReverseEncode)
 
@@ -362,16 +375,16 @@ def TextReverseDecode():
     Presentation()
     mystring = input(
         "\033[32mENTER TEXT YOU WANT TO DECODE THE REVERSE\033[1;m: ")
-    print("")
+    print(f"")
     print(mystring[::-1])
-    print("")
+    print(f"")
     Again(
         "\n\033[1;36mWANT TO DECODE ANOTHER REVERSE (y/n) ?:\033[1;m ", TextReverseDecode)
 
 
 def TextReverse():
     Presentation()
-    print("""
+    print(f"""
 [\033[1;32m*\033[1;m] CHOOSE ONE OF THE OPTIONS BELOW TO CONTINUE:
 
 \033[31m1\033[1;m) ENCODE - REVERSE-TEXT
@@ -389,9 +402,9 @@ def TextReverse():
 def WordsReverseEncode():
     Presentation()
     mystring = input("\033[32mENTER THE TEXT YOU WANT TO REVERSE\033[1;m: ")
-    print("")
+    print(f"")
     print(' '.join(mystring.split()[::-1]))
-    print("")
+    print(f"")
     Again("\n\033[1;36mWANTS TO MAKE ANOTHER REVERSE (y/n) ?:\033[1;m ",
           WordsReverseEncode)
 
@@ -400,16 +413,16 @@ def WordsReverseDecode():
     Presentation()
     mystring = input(
         "\033[32mENTER TEXT YOU WANT TO DECODE THE REVERSE\033[1;m: ")
-    print("")
+    print(f"")
     print(' '.join(mystring.split()[::-1]))
-    print("")
+    print(f"")
     Again("\n\033[1;36mWANT TO DECODE ANOTHER REVERSE (y/n) ?:\033[1;m ",
           WordsReverseDecode)
 
 
 def WordsReverse():
     Presentation()
-    print("""
+    print(f"""
 [\033[1;32m*\033[1;m] CHOOSE ONE OF THE OPTIONS BELOW TO CONTINUE:
 
 \033[31m1\033[1;m) ENCODE - REVERSE-WORDS
@@ -426,7 +439,7 @@ def WordsReverse():
 
 def CeasarCipher():
     Presentation()
-    print("""
+    print(f"""
 [\033[1;32m*\033[1;m] CHOOSE ONE OF THE OPTIONS BELOW TO CONTINUE:
 
 \033[31m1\033[1;m) ENCODE - CIPHER OF CESAR
@@ -442,7 +455,6 @@ def CeasarCipher():
 
 
 def cipher(text, key):
-    #abc = "abcdefghijklmnopqrstuvwxyz "
     cipher_text = ""
 
     for letter in text:
@@ -454,7 +466,6 @@ def cipher(text, key):
 
 
 def decipher(text, key):
-    #abc = "abcdefghijklmnopqrstuvwxyz "
     cipher_text = ""
 
     for letter in text:
@@ -470,10 +481,10 @@ def CeasarCipherEncode():
     try:
         text = str(input('\n\033[32mTEXT FOR CIPHER\033[1;m: ')).lower()
         key = int(input('\033[32mNUMERICAL KEY\033[1;m: '))
-        print("\033[32mRESULT\033[1;m:", cipher(text, key))
-        print("")
+        print(f"\033[32mRESULT\033[1;m:", cipher(text, key))
+        print(f"")
     except:
-        print("\n\n[\033[1;91m!\033[1;m] VALUE ERROR")
+        print(f"\n\n[\033[1;91m!\033[1;m] VALUE ERROR")
         sleep(3)
         CeasarCipherEncode()
     Again(
@@ -485,10 +496,10 @@ def CeasarCipherDecode():
     try:
         text = str(input('\n\033[32mTEXT TO DECODE\033[1;m: ')).lower()
         key = int(input('\033[32mNUMERICAL KEY\033[1;m: '))
-        print("\033[32mRESULT\033[1;m:", decipher(text, key))
-        print("")
+        print(f"\033[32mRESULT\033[1;m:", decipher(text, key))
+        print(f"")
     except:
-        print("\n\n[\033[1;91m!\033[1;m] VALUE ERROR")
+        print(f"\n\n[\033[1;91m!\033[1;m] VALUE ERROR")
         sleep(3)
         CeasarCipherDecode()
     Again(
@@ -499,7 +510,7 @@ def CustomEncode():
     try:
         text = str(input('\n\033[32mTEXT TO ENCODE\033[1;m: ')).lower()
         key = int(input('\033[32mNUMERICAL KEY\033[1;m: '))
-        print("")
+        print(f"")
         temp = key
         while temp > 0:
             encode = binascii.hexlify(bytes(text, "utf-8"))
@@ -508,9 +519,9 @@ def CustomEncode():
             encode = re.sub(r'(..)', r'\1 ', encode).strip()
             text = encode
             temp -=1
-        print("\033[32mRESULT\033[1;m:", cipher(text, key))
+        print(f"\033[32mRESULT\033[1;m:", cipher(text, key))
     except:
-        print("\n[\033[1;91m!\033[1;m] VALUE ERROR")
+        print(f"\n[\033[1;91m!\033[1;m] VALUE ERROR")
         sleep(3)
         CustomEncode()
     Again(
@@ -521,15 +532,15 @@ def CustomDecode():
     try:
         text = str(input('\n\033[32mTEXT TO DECODE\033[1;m: ')).lower()
         key = int(input('\033[32mNUMERICAL KEY\033[1;m: '))
-        print("")
+        print(f"")
         temp = key
         while temp >0:
             decode = bytes.fromhex(text).decode('utf-8')
             text = decode
             temp -=1
-        print("\033[32mRESULT\033[1;m:", decipher(text, key))
+        print(f"\033[32mRESULT\033[1;m:", decipher(text, key))
     except:
-        print("\n[\033[1;91m!\033[1;m] VALUE ERROR")
+        print(f"\n[\033[1;91m!\033[1;m] VALUE ERROR")
         sleep(3)
         CustomDecode()
     Again(
@@ -537,7 +548,7 @@ def CustomDecode():
     
 def Custom():
     Presentation()
-    print("""
+    print(f"""
 [\033[1;32m*\033[1;m] CHOOSE ONE OF THE OPTIONS BELOW TO CONTINUE:
 
 \033[31m1\033[1;m) ENCODE - CUSTOM
