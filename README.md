@@ -1,2 +1,2 @@
-# encryption-algos
+# EncryptIT
 using encryption algos
