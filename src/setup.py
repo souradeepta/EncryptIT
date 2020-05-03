@@ -153,7 +153,7 @@ def Sha1():
     print(f"")
     print(hash_object.hexdigest())
     print(f"")
-    Again(
+    Again(  
         "\n\033[1;36mDESIRE TO DO ANOTHER ENCRYPTION IN SHA1 (y/n) ?:\033[1;m ", Sha1)
 
 
