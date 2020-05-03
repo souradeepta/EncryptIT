@@ -27,7 +27,7 @@ class CONST(object):
  
  # CONST = CONST()
 
-class bcolors:
+class colors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
     OKGREEN = '\033[92m'
@@ -37,20 +37,21 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
     WARN = '\033[32m'
-    RED = '"\033[31m'
+    RED = '\033[31m'
     WHITE = '\033[1;m'
     GREEN2 = '\033[1;36m'
 
 if sys.version_info[0] < 3:
     version = python_version()
-    print(f"\n\033[32m You are using python in the version\033[1;m \033[1m\033[31m%s\033[1;m \033[32mand it is lower than python3 onwards.\033[1;m" % (version))
-    print(f"\033[32m Please run program with a higher version than python2\033[1;m\n")
+    print(f"\n{colors.WARN} You are using python in the version\033[1;m \033[1m{colors.RED}%s\033[1;m \033[32mand it is lower than python3 onwards.\033[1;m" % (version))
+    print(f"{colors.WARN} Please run program with a higher version than python2\033[1;m\n")
     exit(1)
 
 
 def Presentation():
+    
     os.system('cls' if os.name == 'nt' else 'clear')
-    print(f"""\033[31m
+    print(f"""{colors.HEADER}
 
 ___________                                   __  .______________
 \_   _____/ ____   ___________ ___.__._______/  |_|   \__    ___/
@@ -59,10 +60,8 @@ ___________                                   __  .______________
 /_______  /___|  /\___  >__|   / ____||   __/|__| |___| |____|   
         \/     \/     \/       \/     |__|                       
 
-   
-                              \033[1mBy: Souradeepta\033[1;m
 
-""")
+{colors.ENDC}""")
 
 
 def Again(choice, call):
@@ -86,20 +85,20 @@ def Begin():
     print(f"""
 	[\033[1;32m*\033[1;m] CHOOSE ONE OF THE OPTIONS BELOW TO CONTINUE:
 
-	\033[31m1\033[1;m) \033[31mENCODE\033[1;m - \033[32mMD5\033[1;m
-	\033[31m2\033[1;m) \033[31mENCODE\033[1;m - \033[32mSHA1\033[1;m
-	\033[31m3\033[1;m) \033[31mENCODE\033[1;m - \033[32mSHA224\033[1;m
-	\033[31m4\033[1;m) \033[31mENCODE\033[1;m - \033[32mSHA256\033[1;m
-	\033[31m5\033[1;m) \033[31mENCODE\033[1;m - \033[32mSHA384\033[1;m
-	\033[31m6\033[1;m) \033[31mENCODE\033[1;m - \033[32mSHA512\033[1;m
-	\033[31m7\033[1;m) \033[31mENCODE\033[1;m - \033[32mBASE64\033[1;m
-	\033[31m8\033[1;m) \033[31mENCODE/DECODE\033[1;m - \033[32mBINARY\033[1;m
-	\033[31m9\033[1;m) \033[31mENCODE/DECODE\033[1;m - \033[32mHEXADECIMAL\033[1;m
-	\033[31m10\033[1;m) \033[31mENCODE/DECODE\033[1;m - \033[32mCEASAR CIPHER\033[1;m
-	\033[31m11\033[1;m) \033[31mREVERSE\033[1;m - \033[32mTEXT\033[1;m
-	\033[31m12\033[1;m) \033[31mREVERSE\033[1;m - \033[32mWORDS\033[1;m
-    \033[31m13\033[1;m) \033[31mENCODE/DECODE\033[1;m - \033[32mCUSTOM\033[1;m
-	\033[31m14\033[1;m) EXIT
+	{colors.RED}1{colors.ENDC}) {colors.RED}ENCODE{colors.ENDC} - \033[32mMD5{colors.ENDC}
+	{colors.RED}2{colors.ENDC}) {colors.RED}ENCODE{colors.ENDC} - \033[32mSHA1{colors.ENDC}
+	{colors.RED}3{colors.ENDC}) {colors.RED}ENCODE{colors.ENDC} - \033[32mSHA224{colors.ENDC}
+	{colors.RED}4{colors.ENDC}) {colors.RED}ENCODE{colors.ENDC} - \033[32mSHA256{colors.ENDC}
+	{colors.RED}5{colors.ENDC}) {colors.RED}ENCODE{colors.ENDC} - \033[32mSHA384{colors.ENDC}
+	{colors.RED}6{colors.ENDC}) {colors.RED}ENCODE{colors.ENDC} - \033[32mSHA512{colors.ENDC}
+	{colors.RED}7{colors.ENDC}) {colors.RED}ENCODE{colors.ENDC} - \033[32mBASE64{colors.ENDC}
+	{colors.RED}8{colors.ENDC}) {colors.RED}ENCODE/DECODE{colors.ENDC} - \033[32mBINARY{colors.ENDC}
+	{colors.RED}9{colors.ENDC}) {colors.RED}ENCODE/DECODE{colors.ENDC} - \033[32mHEXADECIMAL{colors.ENDC}
+	{colors.RED}10{colors.ENDC}) {colors.RED}ENCODE/DECODE{colors.ENDC} - \033[32mCEASAR CIPHER{colors.ENDC}
+	{colors.RED}11{colors.ENDC}) {colors.RED}REVERSE{colors.ENDC} - \033[32mTEXT{colors.ENDC}
+	{colors.RED}12{colors.ENDC}) {colors.RED}REVERSE{colors.ENDC} - \033[32mWORDS{colors.ENDC}
+    {colors.RED}13{colors.ENDC}) {colors.RED}ENCODE/DECODE{colors.ENDC} - \033[32mCUSTOM{colors.ENDC}
+	{colors.RED}14{colors.ENDC}) {colors.RED}EXIT{colors.ENDC}
 """)
     appChoice = input("\n\033[1;36m⟫⟫⟫\033[1;m ")
     if appChoice == "1":
@@ -241,8 +240,8 @@ def Base64():
     print(f"""
 [\033[1;32m*\033[1;m] CHOOSE ONE OF THE OPTIONS BELOW TO CONTINUE:
 
-\033[31m1\033[1;m) ENCODE - BASE64
-\033[31m2\033[1;m) DECODE - BASE64
+{colors.RED}1\033[1;m) ENCODE - BASE64
+{colors.RED}2\033[1;m) DECODE - BASE64
 """)
     appChoice = input("\n\033[1;36m⟫⟫⟫\033[1;m ")
     if appChoice == "1":
@@ -300,8 +299,8 @@ def Binary():
     print(f"""
 [\033[1;32m*\033[1;m] CHOOSE ONE OF THE OPTIONS BELOW TO CONTINUE:
 
-\033[31m1\033[1;m) ENCODE - BINARY
-\033[31m2\033[1;m) DECODE - BINARY
+{colors.RED}1\033[1;m) ENCODE - BINARY
+{colors.RED}2\033[1;m) DECODE - BINARY
 """)
     appChoice = input("\n\033[1;36m⟫⟫⟫\033[1;m ")
     if appChoice == "1":
@@ -349,8 +348,8 @@ def Hexadecimal():
     print(f"""
 [\033[1;32m*\033[1;m] CHOOSE ONE OF THE OPTIONS BELOW TO CONTINUE:
 
-\033[31m1\033[1;m) ENCODE - HEXADECIMAL
-\033[31m2\033[1;m) DECODE - HEXADECIMAL
+{colors.RED}1\033[1;m) ENCODE - HEXADECIMAL
+{colors.RED}2\033[1;m) DECODE - HEXADECIMAL
 """)
     appChoice = input("\n\033[1;36m⟫⟫⟫\033[1;m ")
     if appChoice == "1":
@@ -387,8 +386,8 @@ def TextReverse():
     print(f"""
 [\033[1;32m*\033[1;m] CHOOSE ONE OF THE OPTIONS BELOW TO CONTINUE:
 
-\033[31m1\033[1;m) ENCODE - REVERSE-TEXT
-\033[31m2\033[1;m) DECODE - REVERSE-TEXT
+{colors.RED}1\033[1;m) ENCODE - REVERSE-TEXT
+{colors.RED}2\033[1;m) DECODE - REVERSE-TEXT
 """)
     appChoice = input("\n\033[1;36m⟫⟫⟫\033[1;m ")
     if appChoice == "1":
@@ -425,8 +424,8 @@ def WordsReverse():
     print(f"""
 [\033[1;32m*\033[1;m] CHOOSE ONE OF THE OPTIONS BELOW TO CONTINUE:
 
-\033[31m1\033[1;m) ENCODE - REVERSE-WORDS
-\033[31m2\033[1;m) DECODE - REVERSE-WORDS
+{colors.RED}1\033[1;m) ENCODE - REVERSE-WORDS
+{colors.RED}2\033[1;m) DECODE - REVERSE-WORDS
 """)
     appChoice = input("\n\033[1;36m⟫⟫⟫\033[1;m ")
     if appChoice == "1":
@@ -442,8 +441,8 @@ def CeasarCipher():
     print(f"""
 [\033[1;32m*\033[1;m] CHOOSE ONE OF THE OPTIONS BELOW TO CONTINUE:
 
-\033[31m1\033[1;m) ENCODE - CIPHER OF CESAR
-\033[31m2\033[1;m) DECODE - CIPHER OF CESAR
+{colors.RED}1\033[1;m) ENCODE - CIPHER OF CESAR
+{colors.RED}2\033[1;m) DECODE - CIPHER OF CESAR
 """)
     appChoice = input("\n\033[1;36m⟫⟫⟫\033[1;m ")
     if appChoice == "1":
@@ -551,8 +550,8 @@ def Custom():
     print(f"""
 [\033[1;32m*\033[1;m] CHOOSE ONE OF THE OPTIONS BELOW TO CONTINUE:
 
-\033[31m1\033[1;m) ENCODE - CUSTOM
-\033[31m2\033[1;m) DECODE - CUSTOM
+{colors.RED}1\033[1;m) ENCODE - CUSTOM
+{colors.RED}2\033[1;m) DECODE - CUSTOM
 """)
     appChoice = input("\n\033[1;36m⟫⟫⟫\033[1;m ")
     if appChoice == "1":
