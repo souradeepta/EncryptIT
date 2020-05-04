@@ -415,8 +415,7 @@ def WordsReverseDecode():
     print(f"")
     print(' '.join(mystring.split()[::-1]))
     print(f"")
-    Again("\n\033[1;36mWANT TO DECODE ANOTHER REVERSE (y/n) ?:\033[1;m ",
-          WordsReverseDecode)
+    Again("\n\033[1;36mWANT TO DECODE ANOTHER REVERSE (y/n) ?:\033[1;m ",WordsReverseDecode)
 
 
 def WordsReverse():
