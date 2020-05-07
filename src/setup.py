@@ -134,6 +134,8 @@ def Begin():
 
 
 def Md5():
+    """[Generates the Md5 hash using hashlib ]
+    """    
     Presentation()
     mystring = input(
         "\033[32mENTER THE TEXT YOU WANT TO ENCRYPT IN MD5\033[1;m: ")
